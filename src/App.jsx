@@ -6,6 +6,7 @@ import { Index } from './views/Index';
 import { Layout } from './views/Layout';
 import { DiscoverDogs } from './views/DiscoverDogs';
 import { ManageDogs } from './views/ManageDogs';
+import './views/globals.styl';
 
 const App = () => {
   return (
