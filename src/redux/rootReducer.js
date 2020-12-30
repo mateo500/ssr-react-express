@@ -6,6 +6,8 @@ const initialState = {
   loading: false,
   error: false,
   errorMessage: '',
+  managedDogs: [],
+  dogPics: [],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,6 +28,28 @@ export const reducer = (state = initialState, action) => {
     case actionTypes['request/GET_POSTS_FAILURE']:
       return update(state, {
         posts: { $set: [] },
+        error: { $set: true },
+        errorMessage: { $set: action.payload },
+        loading: { $set: false },
+      });
+
+    case actionTypes['request/GET_DOG_PICS']: {
+      return update(state, {
+        loading: { $set: true },
+      });
+    }
+
+    case actionTypes['request/GET_DOG_PICS_SUCCESS']:
+      return update(state, {
+        loading: { $set: false },
+        error: { $set: false },
+        errorMessage: { $set: '' },
+        dogPics: { $set: action.payload },
+      });
+
+    case actionTypes['request/GET_DOG_PICS_FAILURE']:
+      return update(state, {
+        dogPics: { $set: [] },
         error: { $set: true },
         errorMessage: { $set: action.payload },
         loading: { $set: false },

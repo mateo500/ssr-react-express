@@ -26,7 +26,7 @@ export const Navbar = () => {
             <Link to='/discover'>Find Your Dog!</Link>
           </li>
           <li className='option'>
-            <Link to='/manage'>Manage Your Dogs</Link>
+            <Link to='/manage'>Manage Your Dogs!</Link>
           </li>
         </ul>
       </div>

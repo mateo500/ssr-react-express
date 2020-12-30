@@ -1,5 +1,10 @@
 import React from 'react';
+import { DogViewGeneral } from '../components/dog-view-general';
 
 export const Index = () => {
-  return <div>content for index</div>;
+  return (
+    <div>
+      <DogViewGeneral />
+    </div>
+  );
 };

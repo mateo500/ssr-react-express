@@ -6,7 +6,9 @@ export const getPosts = () => {
     dispatch(request());
 
     getPostsRequest()
-      .then((payload) => dispatch(success(payload.data)))
+      .then((payload) =>
+        dispatch(success(payload.data.filter((item, index) => index < 50)))
+      )
       .catch((err) => dispatch(failure(err)));
   };
 
