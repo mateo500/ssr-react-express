@@ -1,0 +1,1 @@
+export { dogBreeds } from './dogBreeds';

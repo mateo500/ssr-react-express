@@ -1,5 +1,5 @@
 import actionTypes from '../constants';
-import { getDogPicturesRequest } from '../../services/getDogPicturesRequest';
+import { getDogPicturesRequest } from '../../services';
 
 export const getDogPictures = () => {
   return (dispatch) => {
@@ -7,7 +7,7 @@ export const getDogPictures = () => {
 
     getDogPicturesRequest()
       .then((payload) => dispatch(success(payload.data.message)))
-      .catch((err) => dispatch(failure(err)));
+      .catch((err) => dispatch(failure(err.message)));
   };
 
   function request() {

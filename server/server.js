@@ -10,17 +10,15 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use('^/$', (req, res) => {
+app.get('/', (req, res) => {
   fs.readFile(path.resolve('./dist/index.html'), 'utf-8', (err, data) => {
     if (err) return res.status(500).send('internal server error');
-
-    const context = {};
 
     return res.send(
       data.replace(
         '<div id="root"></div>',
         `<div id="root">${ReactDOMServer.renderToString(
-          <StaticRouter location={req.url} context={context}>
+          <StaticRouter location={req.url}>
             <App />
           </StaticRouter>
         )}</div>`
