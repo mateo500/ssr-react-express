@@ -67,6 +67,29 @@ export const reducer = (state = initialState, action) => {
         managedDogs: { $push: [action.payload] },
       });
 
+    case actionTypes['local/REMOVE_DOG']:
+      const filterDog = state.managedDogs.filter(
+        (item) => item.dogId !== action.payload
+      );
+      return update(state, {
+        managedDogs: { $set: filterDog },
+      });
+
+    case actionTypes['local/UPDATE_DOG']:
+      const targetDog = state.managedDogs.filter(
+        (item) => item.dogId === action.payload.dogId
+      );
+      const newDogsList = state.managedDogs.filter(
+        (item) => item.dogId !== action.payload.dogId
+      );
+
+      const updatedData = { ...targetDog[0], dogName: action.payload.dogName };
+      newDogsList.push(updatedData);
+
+      return update(state, {
+        managedDogs: { $set: newDogsList },
+      });
+
     default:
       return state;
   }

@@ -10,21 +10,37 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.get('/', (req, res) => {
-  fs.readFile(path.resolve('./dist/index.html'), 'utf-8', (err, data) => {
-    if (err) return res.status(500).send('internal server error');
+const reactRenderer = (req, res) => {
+  return fs.readFile(
+    path.resolve('./dist/index.html'),
+    'utf-8',
+    (err, data) => {
+      if (err) return res.status(500).send('internal server error');
 
-    return res.send(
-      data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${ReactDOMServer.renderToString(
-          <StaticRouter location={req.url}>
-            <App />
-          </StaticRouter>
-        )}</div>`
-      )
-    );
-  });
+      return res.send(
+        data.replace(
+          '<div id="root"></div>',
+          `<div id="root">${ReactDOMServer.renderToString(
+            <StaticRouter location={req.url}>
+              <App />
+            </StaticRouter>
+          )}</div>`
+        )
+      );
+    }
+  );
+};
+
+app.get('/', (req, res) => {
+  reactRenderer(req, res);
+});
+
+app.get('/discover', (req, res) => {
+  reactRenderer(req, res);
+});
+
+app.get('/manage', (req, res) => {
+  reactRenderer(req, res);
 });
 
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));

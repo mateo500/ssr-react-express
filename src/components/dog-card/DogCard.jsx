@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './dogCard.styl';
 import { Fade } from 'react-awesome-reveal';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import { addDog } from '../../redux/action-creators/localOps';
+import {
+  addDog,
+  deleteDog,
+  editDog,
+} from '../../redux/action-creators/localOps';
 
 export const DogCard = ({
   dogBreed,
@@ -19,11 +23,22 @@ export const DogCard = ({
   const [dogSaved, setDogSaved] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [dogEditedName, setDogEditedName] = useState('');
+  const [confirmation, setConfirmation] = useState(false);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (
+      confirmation &&
+      window.confirm('do you really want to delete this doggy?')
+    ) {
+      dispatch(deleteDog(dogId));
+      setConfirmation(!confirmation);
+    } //we have to use useEffect to run this in the browser, since we are using the confirm API
+  }, [confirmation]);
+
   const handleDogSave = () => {
-    if (dogSaved === false) {
-      dispatch(addDog({ dogBreed, imgUrl, likes, dogId: uuid() }));
+    if (!dogSaved) {
+      dispatch(addDog({ dogBreed, imgUrl, likes, dogId: uuid(), dogName: '' }));
       setDogSaved(true);
     }
 
@@ -32,12 +47,14 @@ export const DogCard = ({
 
   const handleEdit = () => {
     if (isEditing && dogEditedName.length >= 1) {
-      console.log('saved');
+      dispatch(editDog(dogId, dogEditedName));
     }
     setIsEditing(!isEditing);
   };
 
-  const handleDogDelete = () => {};
+  const handleDogDelete = () => {
+    setConfirmation(!confirmation);
+  };
 
   return (
     <Fade triggerOnce>
@@ -67,7 +84,7 @@ export const DogCard = ({
             </div>
           ) : (
             <div style={{ margin: '20px' }}>
-              <p>Dog Name: {dogName || 'no named asigned yet🤓'}</p>
+              <p>Dog Name: {dogName || 'no name asigned yet🤓'}</p>
             </div>
           )
         ) : null}
