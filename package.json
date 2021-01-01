@@ -10,7 +10,7 @@
     "test-e2e": "concurrently --kill-others \"npm run start\" \"cypress open\"",
     "open-cypress": "cypress open",
     "start-dev": "APP_MODE=dev webpack serve --mode=development --hot",
-    "start": "APP_MODE=prod webpack --mode=production && node server/index.js"
+    "start": "APP_MODE=prod jest && webpack --mode=production && node server/index.js"
   },
   "keywords": [],
   "author": "Mateo Guevara",
