@@ -45,6 +45,18 @@ app.get('/manage', (req, res) => {
 
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 
+app.use('*', (req, res, next) => {
+  const requiredPath = req.baseUrl.split('/');
+
+  const definitivePath =
+    requiredPath.length > 1 ? requiredPath[1] : requiredPath[0];
+
+  if (definitivePath === '') {
+    return next();
+  }
+  return res.status(404).send('ulost');
+});
+
 app.listen(PORT, () => {
   console.log(`app running on port: ${PORT}`);
 });
