@@ -2,14 +2,6 @@ import actionTypes from '../constants';
 import { getDogPicturesRequest } from '../../services';
 
 export const getDogPictures = () => {
-  return (dispatch) => {
-    dispatch(request());
-
-    getDogPicturesRequest()
-      .then((payload) => dispatch(success(payload.data.message)))
-      .catch((err) => dispatch(failure(err.message)));
-  };
-
   function request() {
     return { type: actionTypes['request/GET_DOG_PICS'] };
   }
@@ -27,4 +19,12 @@ export const getDogPictures = () => {
       payload: error,
     };
   }
+
+  return (dispatch) => {
+    dispatch(request());
+
+    getDogPicturesRequest()
+      .then((payload) => dispatch(success(payload.data.message)))
+      .catch((err) => dispatch(failure(err.message)));
+  };
 };

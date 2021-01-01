@@ -18,12 +18,9 @@
   },
   "plugins": ["react", "prettier", "import", "immutable", "jest"],
   "rules": {
-    "no-unused-vars": "warn",
-    "func-names": "off",
     "import/prefer-default-export": "off",
     "spaced-comment": "off",
     "camelcase": "off",
-    "no-use-before-define": "off",
     "react/jsx-filename-extension": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
@@ -34,7 +31,7 @@
     "react/no-render-return-value": "off",
     "no-case-declarations": "off",
     "react/prop-types": "off",
-    "react/no-array-index-key": "warn",
+    "react/no-array-index-key": "off",
     "no-unused-expressions": "warn",
     "no-nested-ternary": "off"
   }

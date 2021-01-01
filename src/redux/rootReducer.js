@@ -56,6 +56,7 @@ export const reducer = (state = initialState, action) => {
         loading: { $set: false },
       });
 
+    //local actions
     case actionTypes['local/CLEAN_BREED_RESULTS']:
       return update(state, {
         dogsByBreed: { $set: [] },

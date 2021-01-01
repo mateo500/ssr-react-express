@@ -4,6 +4,5 @@ export const parseDogInfo = (url) => {
   return {
     dogBreed: dogInfo[4],
     dogUrl: url,
-    dogAge: Math.floor(Math.random() * 19 + 1),
   };
 };

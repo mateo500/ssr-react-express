@@ -8,7 +8,7 @@ import './style/globals.styl';
 
 export const DiscoverDogs = () => {
   const dispatch = useDispatch();
-  const appState = useSelector((state) => state.appState);
+  const { dogsByBreed } = useSelector((state) => state.appState);
 
   useEffect(() => {
     return () => dispatch(cleanBreedResults());
@@ -18,7 +18,7 @@ export const DiscoverDogs = () => {
     <div>
       <DogsByBreed />
       <div className='cards-grid'>
-        {appState.dogsByBreed.map((DogPicUrl, index) => {
+        {dogsByBreed.map((DogPicUrl, index) => {
           const { dogBreed, dogUrl } = parseDogInfo(DogPicUrl);
           return (
             <DogCard
