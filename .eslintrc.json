@@ -33,6 +33,7 @@
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
     "no-unused-expressions": "warn",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "max-classes-per-file": "off"
   }
 }

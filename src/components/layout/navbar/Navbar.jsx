@@ -7,13 +7,13 @@ export const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className='header'>
+    <header className='header'>
       <div className='logo-nav'>
         <div className='logo-container'>
           <a href='/'>
             <img
               src='https://images.vexels.com/media/users/3/142912/isolated/preview/4e17695e6ff43707fa6f1078c24d99c8-black-dog-animal-logo-by-vexels.png'
-              alt='dog-logo'
+              alt='dog-logo-pic'
               className='dog-logo'
             />
           </a>
@@ -33,6 +33,6 @@ export const Navbar = () => {
       <button type='button' className='mobile-menu' onClick={handleClick}>
         {click ? 'close' : 'open'}
       </button>
-    </div>
+    </header>
   );
 };

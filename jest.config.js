@@ -2,7 +2,7 @@ module.exports = {
   roots: ['<rootDir>/src'],
 
   transform: {
-    '^.+\\.jsx$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     '^.+\\.styl$': 'jest-transform-styl',
   },
 
