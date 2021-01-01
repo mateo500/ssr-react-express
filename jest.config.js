@@ -11,7 +11,7 @@ module.exports = {
     '@testing-library/jest-dom/extend-expect',
   ],
 
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$',
+  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.jsx?$',
 
   moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
 };

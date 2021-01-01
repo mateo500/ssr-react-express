@@ -91,11 +91,19 @@ export const DogCard = ({
         {activeButtons ? (
           <div className='buttons-container'>
             {hideLikeButton ? null : (
-              <button onClick={() => setLikes((n) => n + 1)} type='button'>
+              <button
+                className='like-button'
+                onClick={() => setLikes((n) => n + 1)}
+                type='button'
+              >
                 Like Doggy😍 {likes}
               </button>
             )}
-            <button onClick={handleDogSave} type='button'>
+            <button
+              className='save-button'
+              onClick={handleDogSave}
+              type='button'
+            >
               {dogSaved ? 'Dog Saved!😎' : 'Save Doggy👻'}
             </button>
           </div>
@@ -109,10 +117,14 @@ export const DogCard = ({
               paddingTop: isEditing ? '15px' : '0px',
             }}
           >
-            <button onClick={handleEdit} type='button'>
+            <button className='save-button' onClick={handleEdit} type='button'>
               {isEditing ? 'Save' : 'Edit'}
             </button>
-            <button onClick={handleDogDelete} type='button'>
+            <button
+              className='save-button'
+              onClick={handleDogDelete}
+              type='button'
+            >
               delete Doggy😔
             </button>
           </div>
