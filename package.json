@@ -7,7 +7,7 @@
     "build": "webpack --mode=production",
     "test": "jest",
     "test-cov": "jest --coverage",
-    "test-e2e": "concurrently --kill-others \"npm run start\" \"cypress open\"",
+    "test-e2e": "jest && npm run build && concurrently --kill-others \"npm run start\" \"cypress open\"",
     "open-cypress": "cypress open",
     "start-dev": "APP_MODE=dev webpack serve --mode=development --hot",
     "start": "node server/index.js"
