@@ -7,6 +7,7 @@
     "build": "webpack --mode=production",
     "test": "jest",
     "test-cov": "jest --coverage",
+    "test-load": "npm run build && concurrently --kill-others \"npm run start\" \"node server/test/loadingConnection.js\"",
     "test-e2e": "jest && npm run build && concurrently --kill-others \"npm run start\" \"cypress open\"",
     "open-cypress": "cypress open",
     "start-dev": "APP_MODE=dev webpack serve --mode=development --hot",
@@ -16,12 +17,19 @@
   "author": "Mateo Guevara",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/register": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
     "axios": "^0.21.1",
     "core-js": "^3.8.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
     "immutability-helper": "^3.1.1",
+    "loadtest": "^5.1.2",
     "postcss": "^8.2.2",
     "process": "^0.11.10",
     "react": "^17.0.1",
@@ -32,13 +40,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "uuid": "^8.3.2",
-    "@babel/register": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "@babel/runtime": "^7.12.5"
+    "uuid": "^8.3.2"
   },
   "engines": {
     "node": ">=14.15.1"
