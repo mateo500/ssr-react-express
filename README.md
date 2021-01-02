@@ -1,5 +1,5 @@
 # ssr-react-express
-## Simple project consuming a public API [Dog API](https://dog.ceo/dog-api/)
+## Simple project with server side rendering(SSR) consuming a public API [Dog API](https://dog.ceo/dog-api/)
 
 ## Tech Stack:
 1. React
