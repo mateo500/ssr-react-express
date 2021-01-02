@@ -19,5 +19,14 @@
 2. Cypress(e2e/integration testing) -> cypress/integration
 
 
+## npm commands
+1. run unit tests: ```npm run test```
+2. run integration tests and unit tests: ```npm run test-e2e```
+3. run the project in dev mode: ```npm run start-dev```
+4. run the project in production mode: ```npm run build && npm run start``` 
+
+
 ### Deployment: 
 https://ssr-react-poc.herokuapp.com/
+
+
