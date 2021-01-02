@@ -19,6 +19,12 @@ app.get('/manage', (req, res) => {
   reactRenderer(req, res, App);
 });
 
+app.get('/sitemap.xml', (req, res) => {
+  res
+    .status(200)
+    .sendFile(path.resolve(__dirname, '..', 'sitemap', 'sitemap.xml'));
+});
+
 app.use(express.static(path.resolve(__dirname, '..', 'dist')));
 
 app.use('*', (req, res, next) => {
