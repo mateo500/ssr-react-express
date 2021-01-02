@@ -2,7 +2,7 @@
 /* eslint-disable func-names */
 const loadtest = require('loadtest');
 
-//10000 request per second, sacling concurrency in each request
+//10000 request test, scaling concurrency in each request x5, on different routes
 //this test are kind of slow to run so make sure to give it time, around 15 seconds on a 6 core machine
 
 loadtest.loadTest(
