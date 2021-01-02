@@ -48,8 +48,10 @@ export const DogCard = ({
   const handleEdit = () => {
     if (isEditing && dogEditedName.length >= 1) {
       dispatch(editDog(dogId, dogEditedName));
+      setDogEditedName('');
     }
     setIsEditing(!isEditing);
+    setDogEditedName('');
   };
 
   const handleDogDelete = () => {
