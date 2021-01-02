@@ -62,28 +62,23 @@ export const DogCard = ({
         <img className='card-image' src={imgUrl} alt='dog-random-pic' />
         <h4 className='card-title'>Breed: {dogBreed}</h4>
         {isEditable ? (
-          <h4 style={{ paddingLeft: '20px' }}>Likes😍: {likesSaved}</h4>
+          <h4 className='likes-title'>Likes😍: {likesSaved}</h4>
         ) : null}
         {isEditable ? (
           isEditing ? (
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                margin: '20px',
-              }}
-            >
+            <div className='edit-input-container'>
               <input
                 placeholder={dogName || 'put a name to your dog...'}
                 type='text'
                 onChange={(e) => setDogEditedName(e.target.value)}
+                name='input-edit-dog'
               />
               <button onClick={() => setIsEditing(!isEditing)} type='button'>
                 cancel
               </button>
             </div>
           ) : (
-            <div style={{ margin: '20px' }}>
+            <div className='dog-name-container'>
               <p>Dog Name: {dogName || 'no name asigned yet🤓'}</p>
             </div>
           )
@@ -110,10 +105,8 @@ export const DogCard = ({
         ) : null}
         {isEditable ? (
           <div
+            className='editable-buttons-container'
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              margin: '20px',
               paddingTop: isEditing ? '15px' : '0px',
             }}
           >
@@ -121,7 +114,7 @@ export const DogCard = ({
               {isEditing ? 'Save' : 'Edit'}
             </button>
             <button
-              className='save-button'
+              className='delete-button'
               onClick={handleDogDelete}
               type='button'
             >

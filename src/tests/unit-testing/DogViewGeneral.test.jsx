@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { DogViewGeneral } from '../../../components/dog-view-general';
-import { ReduxWrapperMock } from '../utils/ReduxWrapper.mock';
+import { DogViewGeneral } from '../../components/dog-view-general';
+import { ReduxWrapperMock } from './utils/ReduxWrapper.mock';
 
 const mockStore = configureStore([thunk]);
 const store = mockStore({

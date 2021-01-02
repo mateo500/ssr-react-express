@@ -1,0 +1,1 @@
+export { ManageDogsComp } from './ManageDogsComp';

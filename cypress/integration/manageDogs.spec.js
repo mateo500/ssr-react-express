@@ -41,11 +41,96 @@ describe('basic functionality of manage dogs (edit, delete and search) should be
     cy.get('section').should('be.visible');
     cy.get('section').should('have.class', 'card');
 
-    cy.get('*[class^="card"]').each((el) => {
-      cy.wrap(el).should('be.visible');
+    cy.contains('Likes😍: 1').each((el) => {
+      cy.wrap(el)
+        .should('be.visible')
+        .should('have.css', 'font-family')
+        .should('include', 'Fredoka One');
+    });
+  });
+
+  it('should edit a dog a render the updated component', () => {
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
     });
 
-    cy.contains('Likes😍: 1')
+    cy.contains('Manage Your Dogs!').click();
+
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.get('input[name="input-edit-dog"]').type('mateo');
+
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.contains('Dog Name: mateo')
+      .should('be.visible')
+      .should('have.css', 'font-family')
+      .should('include', 'Fredoka One');
+  });
+
+  it('should delete the dog once saved', () => {
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.contains('Manage Your Dogs!').click();
+
+    cy.get('*[class^="delete-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.contains("looks like you don't have dogs to manage yet")
+      .should('be.visible')
+      .should('have.css', 'font-family')
+      .should('include', 'Fredoka One');
+  });
+
+  it("shouldn't edit the dog if nothing is typed in the input", () => {
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.contains('Manage Your Dogs!').click();
+
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.get('input[name="input-edit-dog"]');
+
+    cy.get('*[class^="save-button"]').each((el, index) => {
+      if (index === 1) {
+        return false;
+      }
+      cy.wrap(el).click();
+    });
+
+    cy.contains('Dog Name: no name asigned yet🤓')
       .should('be.visible')
       .should('have.css', 'font-family')
       .should('include', 'Fredoka One');

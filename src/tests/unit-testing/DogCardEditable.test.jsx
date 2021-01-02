@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
-import { DogCard } from '../../../components/dog-card';
-import { ReduxWrapperMock } from '../utils/ReduxWrapper.mock';
+import { DogCard } from '../../components/dog-card';
+import { ReduxWrapperMock } from './utils/ReduxWrapper.mock';
 
 const mockStore = configureStore([]);
 const store = mockStore({
