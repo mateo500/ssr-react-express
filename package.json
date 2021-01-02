@@ -33,13 +33,13 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",
-    "@babel/register": "^7.12.10"
+    "@babel/register": "^7.12.10",
+    "@babel/core": "^7.12.10"
   },
   "engines": {
     "node": ">=14.15.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
