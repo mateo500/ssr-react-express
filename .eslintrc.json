@@ -20,8 +20,11 @@
   },
   "plugins": ["react", "prettier", "import", "immutable", "jest", "cypress"],
   "rules": {
-    "import/prefer-default-export": "off",
+   "import/prefer-default-export": "off",
     "spaced-comment": "off",
     "camelcase": "off",
+    "no-nested-ternary": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off"
   }
 }
