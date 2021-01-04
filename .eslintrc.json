@@ -25,6 +25,7 @@
     "camelcase": "off",
     "no-nested-ternary": "off",
     "react/prop-types": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "react/jsx-one-expression-per-line" : "off" 
   }
 }
