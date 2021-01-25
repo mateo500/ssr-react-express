@@ -29,6 +29,3 @@
 4. run the project in dev mode: `npm run start-dev`
 5. run the project in production mode: `npm run build && npm run start`
 
-### Deployment:
-
-https://ssr-react-poc.herokuapp.com/
