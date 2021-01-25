@@ -6,9 +6,7 @@ import './manageDogsComp.styl';
 const GridCards = ({ filterDogs, dogToSearch }) => {
   const { managedDogs } = useSelector((state) => state.appState);
 
-  const dogFilteredInfo = managedDogs.filter((item) => {
-    return item.dogName === dogToSearch;
-  });
+  const dogFilteredInfo = managedDogs.filter((item) => item.dogName === dogToSearch);
 
   return (
     <div className={managedDogs.length > 0 ? 'cards-grid' : undefined}>
